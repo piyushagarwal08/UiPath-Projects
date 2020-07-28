@@ -1,0 +1,43 @@
+{
+  "name": "Email_Automation_Official",
+  "description": "Mail Automation using SMTP Protocol",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "[2.6.3]",
+    "UiPath.Form.Activities": "[1.1.5]",
+    "UiPath.Mail.Activities": "[1.7.2]",
+    "UiPath.System.Activities": "[19.8.0]",
+    "UiPath.UIAutomation.Activities": "[19.8.0-ce]",
+    "UiPath.WebAPI.Activities": "[1.4.5]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "19.9.2.0",
+  "projectVersion": "1.0.8",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "fileInfoCollection": []
+  },
+  "arguments": {
+    "input": [],
+    "output": []
+  },
+  "expressionLanguage": "VisualBasic"
+}
