@@ -1,0 +1,400 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction Number being Processed basically the Row Count" Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
+    <x:Property sap2010:Annotation.AnnotationText="Name of the Student" Name="in_TransactionField1" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Registration Number of the Student" Name="in_TransactionField2" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Email Address of the Student" Name="in_TransactionField3" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Account Details of the Sender" Name="in_AccountDetails" Type="InArgument(njl:JObject)" />
+    <x:Property sap2010:Annotation.AnnotationText="File Path of Student Data" Name="in_FilePath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Number of Rows already Processed" Name="in_SuccessCount" Type="InArgument(x:Int32)" />
+    <x:Property sap2010:Annotation.AnnotationText="Column Address of Success Column" Name="in_SuccessAdd" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="General Rows Skipped" Name="in_SkipRow" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>2220.8,1840</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="42">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>UiPath.Excel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="2231.2,1675.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="2189.6,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <If Condition="[in_TransactionNumber - (in_SuccessCount+in_SkipRow) &lt; Integer.Parse(in_Config(&quot;Limiter&quot;).ToString)]" DisplayName="Divide Mail Data" sap:VirtualizedContainerService.HintSize="2189.6,1410.4" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Send Mail user 1" sap:VirtualizedContainerService.HintSize="478.4,812" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[in_TransactionNumber mod 13 = 0 or in_TransactionNumber mod 25 = 0]" DisplayName="Random Delay for Mail Protection" sap:VirtualizedContainerService.HintSize="436.8,52.8" sap2010:WorkflowViewState.IdRef="If_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="304,215.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Amount of Delay" Name="delay" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[delay]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[new Random().Next(300,2000)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Delay DisplayName="Random Delay between mails" Duration="[TimeSpan.FromMilliseconds(delay)]" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+              </Sequence>
+            </If.Then>
+          </If>
+          <TryCatch DisplayName="Try Catch user 1" sap:VirtualizedContainerService.HintSize="436.8,626.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch.Try>
+              <Sequence DisplayName="Sequence user 1" sap:VirtualizedContainerService.HintSize="375.2,395.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;&lt;pre style='font-family:Sans Serif;'&gt;&quot;+String.Format(in_AccountDetails(&quot;message&quot;).ToString,in_TransactionField1)+&quot;&lt;/pre&gt;&quot;]" DisplayName="Send Mail using User 1" Email="[in_AccountDetails(&quot;username1&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_2" IsBodyHtml="True" Name="[in_Config(&quot;DisplayNameOfSender&quot;).ToString]" Password="[in_AccountDetails(&quot;password1&quot;).ToString]" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[in_AccountDetails(&quot;subject&quot;).ToString]" To="[in_TransactionField3]">
+                  <ui:SendMail.Files>
+                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                      <InArgument x:TypeArguments="x:String">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;AttachmentsFolderPath&quot;).ToString+&quot;\Output\&quot;+Path.GetFileNameWithoutExtension(in_FilePath).ToString+&quot;-Sheet1\&quot;+in_TransactionField2+&quot;.pdf&quot;" />
+                      </InArgument>
+                    </scg:List>
+                  </ui:SendMail.Files>
+                </ui:SendMail>
+                <ui:WriteCell Cell="[in_SuccessAdd.Substring(0,1)+(in_TransactionNumber+1).ToString]" DisplayName="Write Success Msg User1" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[in_Config(&quot;SentMessage&quot;).ToString]" WorkbookPath="[in_FilePath]" />
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <ui:AppendLine DisplayName="Append Line" FileName="[in_Config(&quot;ErrorFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="333.6,134.4" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[in_TransactionField2+&quot;,&quot;+in_TransactionField1+&quot;,&quot;+in_TransactionField3+&quot;,&quot;+exception.ToString]" />
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <If Condition="[in_TransactionNumber - (in_SuccessCount+in_SkipRow) &lt; 2*Integer.Parse(in_Config(&quot;Limiter&quot;).ToString)]" DisplayName="Divide Mail Data" sap:VirtualizedContainerService.HintSize="1667.2,1260.8" sap2010:WorkflowViewState.IdRef="If_8">
+          <If.Then>
+            <Sequence DisplayName="Send Mail user 2" sap:VirtualizedContainerService.HintSize="478.4,812" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[in_TransactionNumber mod 13 = 0 or in_TransactionNumber mod 25 = 0]" DisplayName="Random Delay for Mail Protection" sap:VirtualizedContainerService.HintSize="436.8,52.8" sap2010:WorkflowViewState.IdRef="If_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="304,215.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Amount of Delay" Name="delay" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[delay]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[new Random().Next(300,2000)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Delay DisplayName="Random Delay between mails" Duration="[TimeSpan.FromMilliseconds(delay)]" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  </Sequence>
+                </If.Then>
+              </If>
+              <TryCatch DisplayName="Try Catch user 2" sap:VirtualizedContainerService.HintSize="436.8,626.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                <TryCatch.Try>
+                  <Sequence DisplayName="Sequence user 2" sap:VirtualizedContainerService.HintSize="375.2,395.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;&lt;pre style='font-family:Sans Serif;'&gt;&quot;+String.Format(in_AccountDetails(&quot;message&quot;).ToString,in_TransactionField1)+&quot;&lt;/pre&gt;&quot;]" DisplayName="Send Mail using User 2" Email="[in_AccountDetails(&quot;username2&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_3" IsBodyHtml="True" Name="[in_Config(&quot;DisplayNameOfSender&quot;).ToString]" Password="[in_AccountDetails(&quot;password2&quot;).ToString]" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[in_AccountDetails(&quot;subject&quot;).ToString]" To="[in_TransactionField3]">
+                      <ui:SendMail.Files>
+                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                          <InArgument x:TypeArguments="x:String">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;AttachmentsFolderPath&quot;).ToString+&quot;\Output\&quot;+Path.GetFileNameWithoutExtension(in_FilePath).ToString+&quot;-Sheet1\&quot;+in_TransactionField2+&quot;.pdf&quot;" />
+                          </InArgument>
+                        </scg:List>
+                      </ui:SendMail.Files>
+                    </ui:SendMail>
+                    <ui:WriteCell Cell="[in_SuccessAdd.Substring(0,1)+(in_TransactionNumber+1).ToString]" DisplayName="Write Success Msg user 2" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="[in_Config(&quot;SentMessage&quot;).ToString]" WorkbookPath="[in_FilePath]" />
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <ui:AppendLine DisplayName="Append Line" FileName="[in_Config(&quot;ErrorFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="333.6,134.4" sap2010:WorkflowViewState.IdRef="AppendLine_2" Text="[in_TransactionField2+&quot;,&quot;+in_TransactionField1+&quot;,&quot;+in_TransactionField3+&quot;,&quot;+exception.ToString]" />
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <If Condition="[in_TransactionNumber - (in_SuccessCount+in_SkipRow) &lt; 3*Integer.Parse(in_Config(&quot;Limiter&quot;).ToString)]" DisplayName="Divide Mail Data" sap:VirtualizedContainerService.HintSize="1144.8,1111.2" sap2010:WorkflowViewState.IdRef="If_7">
+              <If.Then>
+                <Sequence DisplayName="Send Mail user 3" sap:VirtualizedContainerService.HintSize="478.4,812" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[in_TransactionNumber mod 13 = 0 or in_TransactionNumber mod 25 = 0]" DisplayName="Random Delay for Mail Protection" sap:VirtualizedContainerService.HintSize="436.8,52.8" sap2010:WorkflowViewState.IdRef="If_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="304,215.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Amount of Delay" Name="delay" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[delay]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[new Random().Next(300,2000)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Delay DisplayName="Random Delay between mails" Duration="[TimeSpan.FromMilliseconds(delay)]" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                  <TryCatch DisplayName="Try Catch user 3" sap:VirtualizedContainerService.HintSize="436.8,626.4" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                    <TryCatch.Try>
+                      <Sequence DisplayName="Sequence user 3" sap:VirtualizedContainerService.HintSize="375.2,395.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;&lt;pre style='font-family:Sans Serif;'&gt;&quot;+String.Format(in_AccountDetails(&quot;message&quot;).ToString,in_TransactionField1)+&quot;&lt;/pre&gt;&quot;]" DisplayName="Send Mail using User 3" Email="[in_AccountDetails(&quot;username3&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_4" IsBodyHtml="True" Name="[in_Config(&quot;DisplayNameOfSender&quot;).ToString]" Password="[in_AccountDetails(&quot;password3&quot;).ToString]" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[in_AccountDetails(&quot;subject&quot;).ToString]" To="[in_TransactionField3]">
+                          <ui:SendMail.Files>
+                            <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                              <InArgument x:TypeArguments="x:String">
+                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;AttachmentsFolderPath&quot;).ToString+&quot;\Output\&quot;+Path.GetFileNameWithoutExtension(in_FilePath).ToString+&quot;-Sheet1\&quot;+in_TransactionField2+&quot;.pdf&quot;" />
+                              </InArgument>
+                            </scg:List>
+                          </ui:SendMail.Files>
+                        </ui:SendMail>
+                        <ui:WriteCell Cell="[in_SuccessAdd.Substring(0,1)+(in_TransactionNumber+1).ToString]" DisplayName="Write Success Msg user 3" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="[in_Config(&quot;SentMessage&quot;).ToString]" WorkbookPath="[in_FilePath]" />
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <ui:AppendLine DisplayName="Append Line" FileName="[in_Config(&quot;ErrorFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="333.6,134.4" sap2010:WorkflowViewState.IdRef="AppendLine_3" Text="[in_TransactionField2+&quot;,&quot;+in_TransactionField1+&quot;,&quot;+in_TransactionField3+&quot;,&quot;+exception.ToString]" />
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <If Condition="[in_TransactionNumber - (in_SuccessCount+in_SkipRow) &lt; 4*Integer.Parse(in_Config(&quot;Limiter&quot;).ToString)]" DisplayName="Divide Mail Data" sap:VirtualizedContainerService.HintSize="622.4,961.6" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If.Then>
+                    <Sequence DisplayName="Send Mail user 4" sap:VirtualizedContainerService.HintSize="478.4,812" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If Condition="[in_TransactionNumber mod 13 = 0 or in_TransactionNumber mod 25 = 0]" DisplayName="Random Delay for Mail Protection" sap:VirtualizedContainerService.HintSize="436.8,52.8" sap2010:WorkflowViewState.IdRef="If_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="304,215.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Amount of Delay" Name="delay" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[delay]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">[new Random().Next(300,2000)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Delay DisplayName="Random Delay between mails" Duration="[TimeSpan.FromMilliseconds(delay)]" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                      <TryCatch DisplayName="Try Catch user 4" sap:VirtualizedContainerService.HintSize="436.8,626.4" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                        <TryCatch.Try>
+                          <Sequence DisplayName="Sequence user 4" sap:VirtualizedContainerService.HintSize="375.2,395.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;&lt;pre style='font-family:Sans Serif;'&gt;&quot;+String.Format(in_AccountDetails(&quot;message&quot;).ToString,in_TransactionField1)+&quot;&lt;/pre&gt;&quot;]" DisplayName="Send Mail using User 4" Email="[in_AccountDetails(&quot;username4&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="True" Name="[in_Config(&quot;DisplayNameOfSender&quot;).ToString]" Password="[in_AccountDetails(&quot;password4&quot;).ToString]" Port="587" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[in_AccountDetails(&quot;subject&quot;).ToString]" To="[in_TransactionField3]">
+                              <ui:SendMail.Files>
+                                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                  <InArgument x:TypeArguments="x:String">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;AttachmentsFolderPath&quot;).ToString+&quot;\Output\&quot;+Path.GetFileNameWithoutExtension(in_FilePath).ToString+&quot;-Sheet1\&quot;+in_TransactionField2+&quot;.pdf&quot;" />
+                                  </InArgument>
+                                </scg:List>
+                              </ui:SendMail.Files>
+                            </ui:SendMail>
+                            <ui:WriteCell Cell="[in_SuccessAdd.Substring(0,1)+(in_TransactionNumber+1).ToString]" DisplayName="Write Success Msg user 4" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet1" Text="[in_Config(&quot;SentMessage&quot;).ToString]" WorkbookPath="[in_FilePath]" />
+                          </Sequence>
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ActivityAction x:TypeArguments="s:Exception">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                              </ActivityAction.Argument>
+                              <ui:AppendLine DisplayName="Append Line" FileName="[in_Config(&quot;ErrorFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="333.6,134.4" sap2010:WorkflowViewState.IdRef="AppendLine_4" Text="[in_TransactionField2+&quot;,&quot;+in_TransactionField1+&quot;,&quot;+in_TransactionField3+&quot;,&quot;+exception.ToString]" />
+                            </ActivityAction>
+                          </Catch>
+                        </TryCatch.Catches>
+                      </TryCatch>
+                    </Sequence>
+                  </If.Then>
+                </If>
+              </If.Else>
+            </If>
+          </If.Else>
+        </If>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
