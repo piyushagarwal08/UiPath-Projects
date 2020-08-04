@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>933.6,2428</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>933.6,2548.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Mail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -40,7 +40,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="24">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -67,11 +67,12 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Mail" sap:VirtualizedContainerService.HintSize="944,2263.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Mail" sap:VirtualizedContainerService.HintSize="944,2384" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="Data" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="Counter" />
       <Variable x:TypeArguments="x:Boolean" Name="File" />
+      <Variable x:TypeArguments="x:String" Name="Message" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -86,6 +87,7 @@
         </InArgument>
       </ui:ReadRange.Range>
     </ui:ReadRange>
+    <ui:ReadTextFile Content="[Message]" DisplayName="Read Text File" FileName="[in_Config(&quot;TempFile&quot;).ToString]" sap:VirtualizedContainerService.HintSize="902.4,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
     <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[Data]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="902.4,1100.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
@@ -126,7 +128,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
-                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;&lt;pre style='font-family:Sans Serif;'&gt;&quot;+String.Format(in_Config(&quot;MailContent&quot;).ToString,row(in_Config(&quot;NameHeader&quot;).ToString).ToString)+&quot;&lt;/pre&gt;&quot;]" DisplayName="Send SIH Bot Message" Email="[in_Username]" EnableSSL="True" From="[in_Config(&quot;SenderFrom&quot;).ToString]" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="True" Name="[in_Config(&quot;SendFromName&quot;).ToString]" Password="[new System.Net.NetworkCredential(string.Empty, in_Password).Password]" Port="[Integer.Parse(in_Config(&quot;Port&quot;).ToString)]" SecureConnection="Auto" Server="[in_Config(&quot;Server&quot;).ToString]" Subject="[in_Config(&quot;MailSubject&quot;).ToString]" To="[row(&quot;E-Mail&quot;).ToString]">
+                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;&lt;pre style='font-family:Sans Serif;'&gt;&quot;+String.Format(in_Config(&quot;MailContent&quot;).ToString,row(in_Config(&quot;NameHeader&quot;).ToString).ToString,Message)+&quot;&lt;/pre&gt;&quot;]" DisplayName="Send SIH Bot Message" Email="[in_Username]" EnableSSL="True" From="[in_Config(&quot;SenderFrom&quot;).ToString]" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="True" Name="[in_Config(&quot;SendFromName&quot;).ToString]" Password="[new System.Net.NetworkCredential(string.Empty, in_Password).Password]" Port="[Integer.Parse(in_Config(&quot;Port&quot;).ToString)]" SecureConnection="Auto" Server="[in_Config(&quot;Server&quot;).ToString]" Subject="[in_Config(&quot;MailSubject&quot;).ToString]" To="[row(&quot;E-Mail&quot;).ToString]">
                   <ui:SendMail.Files>
                     <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                   </ui:SendMail.Files>

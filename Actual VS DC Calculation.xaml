@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>821.6,801.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>797.6,801.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Actual_VS_DC_Calculations_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -119,7 +119,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:OpenBrowser>
-        <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="475.2,3149.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="475.2,2492" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -127,13 +127,13 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;UPRVUNL DATA&quot;]" />
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="UPRVUNL DATA" sap:VirtualizedContainerService.HintSize="433.6,815.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="3e992ff7010dd62ab84496eaf7da6fb4" Selector="&lt;html app='chrome.exe' title='Real Time Data - UPSLDC' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="UPRVUNL DATA" sap:VirtualizedContainerService.HintSize="433.6,596" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="3e992ff7010dd62ab84496eaf7da6fb4" Selector="&lt;html app='chrome.exe' title='Real Time Data - UPSLDC' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="UPRVUNL DATA" sap:VirtualizedContainerService.HintSize="375.2,668" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="UPRVUNL DATA" sap:VirtualizedContainerService.HintSize="375.2,448.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
                   </Sequence.Variables>
@@ -151,9 +151,27 @@
                       </ui:Target>
                     </ui:ExtractData.Target>
                   </ui:ExtractData>
-                  <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_Config(&quot;UPRVUNL_SheetName&quot;).ToString]" StartingCell="A1" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
-                  <ui:WriteCell Cell="F1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[in_Config(&quot;UPRVUNL_SheetName&quot;).ToString]" Text="Plant Load Factor (PLF)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
-                  <ui:WriteCell Cell="G1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="[in_Config(&quot;UPRVUNL_SheetName&quot;).ToString]" Text="Deviation (Schedule - Actual)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                  <ui:AppendRange DataTable="[ExtractDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[in_Config(&quot;UPRVUNL_SheetName&quot;).ToString]" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,520.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_Config(&quot;UPRVUNL_SheetName&quot;).ToString]" StartingCell="A1" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                        <ui:WriteCell Cell="F1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[in_Config(&quot;UPRVUNL_SheetName&quot;).ToString]" Text="Plant Load Factor (PLF)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                        <ui:WriteCell Cell="G1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="[in_Config(&quot;UPRVUNL_SheetName&quot;).ToString]" Text="Deviation (Schedule - Actual)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
                 </Sequence>
               </ActivityAction>
             </ui:BrowserScope.Body>
@@ -165,13 +183,13 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:BrowserScope>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;UPJVNL DATA&quot;]" />
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="UPJVNL DATA" sap:VirtualizedContainerService.HintSize="433.6,815.2" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="169801c8afaf9a02e5f37abec1f455e0" Selector="&lt;html app='chrome.exe' title='Real Time Data - UPSLDC' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="UPJVNL DATA" sap:VirtualizedContainerService.HintSize="433.6,596" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="169801c8afaf9a02e5f37abec1f455e0" Selector="&lt;html app='chrome.exe' title='Real Time Data - UPSLDC' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="UPJVNL DATA" sap:VirtualizedContainerService.HintSize="375.2,668" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="UPJVNL DATA" sap:VirtualizedContainerService.HintSize="375.2,448.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
                   </Sequence.Variables>
@@ -189,9 +207,27 @@
                       </ui:Target>
                     </ui:ExtractData.Target>
                   </ui:ExtractData>
-                  <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_Config(&quot;UPJVNL_SheetName&quot;).ToString]" StartingCell="A1" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
-                  <ui:WriteCell Cell="F1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="[in_Config(&quot;UPJVNL_SheetName&quot;).ToString]" Text="Plant Load Factor (PLF)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
-                  <ui:WriteCell Cell="G1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="[in_Config(&quot;UPJVNL_SheetName&quot;).ToString]" Text="Deviation (Schedule - Actual)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                  <ui:AppendRange DataTable="[ExtractDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="[in_Config(&quot;UPJVNL_SheetName&quot;).ToString]" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,520.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_Config(&quot;UPJVNL_SheetName&quot;).ToString]" StartingCell="A1" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                        <ui:WriteCell Cell="F1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="[in_Config(&quot;UPJVNL_SheetName&quot;).ToString]" Text="Plant Load Factor (PLF)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                        <ui:WriteCell Cell="G1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="[in_Config(&quot;UPJVNL_SheetName&quot;).ToString]" Text="Deviation (Schedule - Actual)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
                 </Sequence>
               </ActivityAction>
             </ui:BrowserScope.Body>
@@ -203,13 +239,13 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:BrowserScope>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;IPP DATA&quot;]" />
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="IPP DATA" sap:VirtualizedContainerService.HintSize="433.6,815.2" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="430a11eb217b75282d88707b0b0f1508" Selector="&lt;html app='chrome.exe' title='Real Time Data - UPSLDC' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="IPP DATA" sap:VirtualizedContainerService.HintSize="433.6,596" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="430a11eb217b75282d88707b0b0f1508" Selector="&lt;html app='chrome.exe' title='Real Time Data - UPSLDC' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="IPP Data" sap:VirtualizedContainerService.HintSize="375.2,668" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="IPP Data" sap:VirtualizedContainerService.HintSize="375.2,448.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
                   </Sequence.Variables>
@@ -227,9 +263,27 @@
                       </ui:Target>
                     </ui:ExtractData.Target>
                   </ui:ExtractData>
-                  <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_Config(&quot;IPP_SheetName&quot;).ToString]" StartingCell="A1" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
-                  <ui:WriteCell Cell="F1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="[in_Config(&quot;IPP_SheetName&quot;).ToString]" Text="Plant Load Factor (PLF)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
-                  <ui:WriteCell Cell="G1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="[in_Config(&quot;IPP_SheetName&quot;).ToString]" Text="Deviation (Schedule - Actual)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                  <ui:AppendRange DataTable="[ExtractDataTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="AppendRange_3" SheetName="[in_Config(&quot;IPP_SheetName&quot;).ToString]" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,520.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[in_Config(&quot;IPP_SheetName&quot;).ToString]" StartingCell="A1" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                        <ui:WriteCell Cell="F1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="[in_Config(&quot;IPP_SheetName&quot;).ToString]" Text="Plant Load Factor (PLF)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                        <ui:WriteCell Cell="G1" DisplayName="Plant Load Cell header" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="[in_Config(&quot;IPP_SheetName&quot;).ToString]" Text="Deviation (Schedule - Actual)" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]" />
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
                 </Sequence>
               </ActivityAction>
             </ui:BrowserScope.Body>
@@ -313,7 +367,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">120,344.4 120,374.4 220.095,374.4 220.095,410</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Process Extracted Data" sap:VirtualizedContainerService.HintSize="960.8,1480.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence DisplayName="Process Extracted Data" sap:VirtualizedContainerService.HintSize="960.8,2024" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataTable" Name="DT" />
                   <Variable x:TypeArguments="x:Int32" Default="1" Name="Counter" />
@@ -324,13 +378,13 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Output Table" sap:VirtualizedContainerService.HintSize="919.2,1388" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]">
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Output Table" sap:VirtualizedContainerService.HintSize="919.2,1931.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[in_Config(&quot;LimitOutputFile&quot;).ToString]">
                   <ui:ExcelApplicationScope.Body>
                     <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="885.6,1278.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="885.6,1821.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -349,13 +403,13 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:ExcelReadRange>
-                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="844,992.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="844,1628.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                           <ui:ForEachRow.Body>
                             <ActivityAction x:TypeArguments="sd:DataRow">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="794.4,844" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="794.4,1480" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="x:Double" Name="PLF" />
                                   <Variable x:TypeArguments="x:String" Name="Deviation" />
@@ -373,6 +427,11 @@
                                     <InArgument x:TypeArguments="x:Int32">[Counter+1]</InArgument>
                                   </Assign.Value>
                                 </Assign>
+                                <If Condition="[Not String.IsNullOrWhiteSpace(row(&quot;Plant Load Factor (PLF)&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="752.8,209.6" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <If.Then>
+                                    <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                                  </If.Then>
+                                </If>
                                 <If Condition="[Conversion.Val(row(&quot;DC (MW)&quot;).ToString) &gt; 0]" DisplayName="Calculate PLF" sap:VirtualizedContainerService.HintSize="752.8,430.4" sap2010:WorkflowViewState.IdRef="If_2">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -402,29 +461,22 @@
                                     <ui:ExcelWriteCell Cell="[&quot;F&quot;+Counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="[Sheets(SheetCount)]" Text="[PLF.ToString]" />
                                   </If.Else>
                                 </If>
-                                <If Condition="[PLF &gt; Conversion.Val(PLF_Limits(row(&quot;Name of Generator&quot;).ToString).ToString)]" DisplayName="Threshholf Exceeds" sap:VirtualizedContainerService.HintSize="752.8,52.8" sap2010:WorkflowViewState.IdRef="If_3">
+                                <If Condition="[PLF &lt; Conversion.Val(PLF_Limits(row(&quot;Name of Generator&quot;).ToString).ToString)]" DisplayName="Threshholf Exceeds" sap:VirtualizedContainerService.HintSize="752.8,439.2" sap2010:WorkflowViewState.IdRef="If_3">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <If.Then>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="304,215.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                    <Sequence sap:VirtualizedContainerService.HintSize="375.2,289.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:ExcelSetRangeColor Color="[System.Drawing.Color.Yellow]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_1" Range="[&quot;F&quot;+Counter.ToString]" SheetName="[Sheets(SheetCount)]" />
-                                      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="x:Boolean">[Check]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
+                                      <ui:ExcelSetRangeColor Color="[System.Drawing.Color.Yellow]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_1" Range="[&quot;F&quot;+Counter.ToString]" SheetName="[Sheets(SheetCount)]" />
+                                      <ui:AppendLine DisplayName="Generator with threshhold value increasing" FileName="[in_Config(&quot;TempFile&quot;).ToString]" sap:VirtualizedContainerService.HintSize="333.6,134.4" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[Sheets(SheetCount)+&quot;~~&gt;&quot;+row(&quot;Name of Generator&quot;).ToString]" />
                                     </Sequence>
                                   </If.Then>
                                 </If>
@@ -439,17 +491,6 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:ForEachRow>
-                        <If Condition="[Check]" DisplayName="If threshhold is exceeded in any sheet" sap:VirtualizedContainerService.HintSize="844,52.8" sap2010:WorkflowViewState.IdRef="If_4">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <ui:AppendLine DisplayName="Highlighted Sheets Name" FileName="[in_Config(&quot;TempFile&quot;).ToString]" sap:VirtualizedContainerService.HintSize="333.6,134.4" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[Sheets(SheetCount)]" />
-                          </If.Then>
-                        </If>
                       </Sequence>
                     </ActivityAction>
                   </ui:ExcelApplicationScope.Body>

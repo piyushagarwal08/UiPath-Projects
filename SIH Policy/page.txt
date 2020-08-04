@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        //Pie Chart
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name of Generator');
+        data.addColumn('number', 'PLF');
+        //data.addcloumn('number','Values')
+        data.addRows([
+        {0}
+        ]);
+        
+        var data1 = new google.visualization.DataTable();
+        data1.addColumn('string', 'Name of Generator');
+        data1.addColumn('number', 'PLF');
+        //data.addcloumn('number','Values')
+        data1.addRows([
+        {1}
+        ]);
+
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'Name of Generator');
+        data2.addColumn('number', 'PLF');
+        //data.addcloumn('number','Values')
+        data2.addRows([
+        {2}
+        ]);
+
+        // Set chart options
+        var options = {'title':'Update in Actual Time',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
+        chart.draw(data1, options);
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div2'));
+        chart.draw(data2, options);
+      }
+
+    </script>
+
+  </head>
+
+  <!-- Try to add or remove colors from this tag-->
+  <body style="background-color: aquamarine">
+    <h1 style="color: blue;"><marquee>Welcome to Live Data Streaming Platform</marquee> </h1>
+    
+
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" style="display:inline-block;"></div>
+    <div id="chart_div1" style="display:inline-block;"></div>
+    <div id="chart_div2" style="display:inline-block;"></div>
+  </body>
+</html>
