@@ -1,7 +1,7 @@
 # Back Admit Cards Generate
 
 ## Setup
-1. Save the ```Team 7``` folder in the ```Packages``` Folder
+1. Save the ```Team 7``` folder and ```.nupkg``` in the ```Packages``` Folder
 2. Set the path to ```Images``` folder,```Output``` folder and path of ```Word Application``` that is ```winword.exe```
 3. Save the ```Default.jpeg``` image in the ```Images``` Folder mentioned in step 2
 
