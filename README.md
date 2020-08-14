@@ -2,6 +2,7 @@
 
 ## Setup
 * Create a folder in ```Packages``` folder named ```Team 7``` and inside it another folder named ```InputSetupFiles```
+* Save the ```.nupkg``` inside the ```Packages``` folder
 * Copy the ```Config.xlsx``` file stored in ```Data``` folder to ```InputSetupFiles``` folder
 * ```UiPath.Forms.Activities``` should be installed (can be found in manage packages)
 
