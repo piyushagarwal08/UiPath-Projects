@@ -6,13 +6,14 @@
     "UiPath.Excel.Activities": "[2.5.3]",
     "UiPath.Mail.Activities": "[1.8.5]",
     "UiPath.System.Activities": "[20.4.0]",
-    "UiPath.UIAutomation.Activities": "[20.4.1]"
+    "UiPath.UIAutomation.Activities": "[20.4.3]",
+    "UiPath.Word.Activities": "[1.4.3]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.4.1.0",
-  "projectVersion": "2.5.14",
+  "projectVersion": "2.5.15-alpha.1",
   "runtimeOptions": {
     "exceptionHandlerWorkflow": "Global Exception Handler.xaml",
     "autoDispose": false,
