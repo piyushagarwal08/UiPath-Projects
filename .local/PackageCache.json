@@ -23,6 +23,48 @@
     },
     {
       "Package": {
+        "Id": "UiPath.Form.Activities",
+        "Version": "1.1.5"
+      },
+      "Assemblies": [
+        "C:\\Users\\piyus\\.nuget\\packages\\castle.core/4.3.1\\lib/net45/Castle.Core.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\system.io.abstractions/3.0.10\\lib/net40/System.IO.Abstractions.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\system.runtime.compilerservices.unsafe/4.5.2\\lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\system.threading.tasks.dataflow/4.10.0\\lib/netstandard2.0/System.Threading.Tasks.Dataflow.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\system.threading.tasks.extensions/4.5.1\\lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/CefSharp.BrowserSubprocess.Core.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/CefSharp.Core.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/CefSharp.Wpf.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/CefSharp.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/UiPath.CEFSharpBundle.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/chrome_elf.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/d3dcompiler_47.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/libEGL.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/libGLESv2.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/libcef.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/msvcp140.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/swiftshader/libEGL.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/swiftshader/libGLESv2.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/vcruntime140.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Callout.Activity.Design.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Callout.Activity.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Callout.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Form.Activities.Design.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Form.Activities.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary/1.1.4\\lib/net461/UiPath.Form.ActivityLibrary.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary/1.1.4\\lib/net461/UiPath.Form.Host.Local.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary/1.1.4\\lib/net461/UiPath.Form.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary/1.1.4\\lib/net461/UiPath.OutOfProcessUi.Common.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary.contracts/1.1.1\\lib/net461/UiPath.Form.ActivityLibrary.Contracts.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.platform/20.4.0\\lib/net461/UiPath.Platform.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.telemetry.client/1.2.20\\lib/net461/TelemetryClient.dll"
+      ],
+      "Path": "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities\\1.1.5"
+    },
+    {
+      "Package": {
         "Id": "UiPath.Mail.Activities",
         "Version": "1.7.2"
       },
@@ -112,48 +154,6 @@
     },
     {
       "Package": {
-        "Id": "UiPath.Form.Activities",
-        "Version": "1.1.5"
-      },
-      "Assemblies": [
-        "C:\\Users\\piyus\\.nuget\\packages\\castle.core/4.3.1\\lib/net45/Castle.Core.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\system.io.abstractions/3.0.10\\lib/net40/System.IO.Abstractions.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\system.runtime.compilerservices.unsafe/4.5.2\\lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\system.threading.tasks.dataflow/4.10.0\\lib/netstandard2.0/System.Threading.Tasks.Dataflow.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\system.threading.tasks.extensions/4.5.1\\lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/CefSharp.BrowserSubprocess.Core.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/CefSharp.Core.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/CefSharp.Wpf.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/CefSharp.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/UiPath.CEFSharpBundle.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/chrome_elf.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/d3dcompiler_47.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/libEGL.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/libGLESv2.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/libcef.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/msvcp140.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/swiftshader/libEGL.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/swiftshader/libGLESv2.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.cefsharpbundle/1.2.0\\lib/net452/vcruntime140.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Callout.Activity.Design.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Callout.Activity.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Callout.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Form.Activities.Design.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities/1.1.5\\lib/net461/UiPath.Form.Activities.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary/1.1.4\\lib/net461/UiPath.Form.ActivityLibrary.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary/1.1.4\\lib/net461/UiPath.Form.Host.Local.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary/1.1.4\\lib/net461/UiPath.Form.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary/1.1.4\\lib/net461/UiPath.OutOfProcessUi.Common.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.formactivitylibrary.contracts/1.1.1\\lib/net461/UiPath.Form.ActivityLibrary.Contracts.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.platform/20.4.0\\lib/net461/UiPath.Platform.dll",
-        "C:\\Users\\piyus\\.nuget\\packages\\uipath.telemetry.client/1.2.20\\lib/net461/TelemetryClient.dll"
-      ],
-      "Path": "C:\\Users\\piyus\\.nuget\\packages\\uipath.form.activities\\1.1.5"
-    },
-    {
-      "Package": {
         "Id": "UiPath.WebAPI.Activities",
         "Version": "1.4.5"
       },
@@ -166,6 +166,25 @@
         "C:\\Users\\piyus\\.nuget\\packages\\uipath.webapi.activities/1.4.5\\lib/net452/UiPath.Web.dll"
       ],
       "Path": "C:\\Users\\piyus\\.nuget\\packages\\uipath.webapi.activities\\1.4.5"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Python.Activities",
+        "Version": "1.1.6863.33404"
+      },
+      "Assemblies": [
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/UiPath.Python.Activities.Design.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/UiPath.Python.Activities.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/UiPath.Python.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x64/Python.Runtime.35.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x64/Python.Runtime.36.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.27.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.33.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.34.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.35.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities/1.1.6863.33404\\lib/net452/x86/Python.Runtime.36.dll"
+      ],
+      "Path": "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities\\1.1.6863.33404"
     }
   ],
   "Conflicts": [],
@@ -459,6 +478,11 @@
           "Item2": "[4.5.0, )"
         }
       ]
+    },
+    "UiPath.Python.Activities": {
+      "Id": "UiPath.Python.Activities",
+      "Version": "1.1.6863.33404",
+      "Dependencies": []
     },
     "UiPath.System.Activities": {
       "Id": "UiPath.System.Activities",
@@ -899,6 +923,20 @@
         "C:\\Users\\piyus\\.nuget\\packages\\uipath.platform\\20.4.0\\lib\\net461\\UiPath.Platform.dll"
       ],
       "Path": "C:\\Users\\piyus\\.nuget\\packages\\uipath.platform\\20.4.0"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Python.Activities",
+        "Version": "1.1.6863.33404"
+      },
+      "Assemblies": [
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities\\1.1.6863.33404\\lib\\net452\\UiPath.Python.Activities.Design.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities\\1.1.6863.33404\\lib\\net452\\UiPath.Python.Activities.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities\\1.1.6863.33404\\lib\\net452\\UiPath.Python.dll",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities\\1.1.6863.33404\\lib\\net452\\UiPath.Python.Host.exe",
+        "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities\\1.1.6863.33404\\lib\\net452\\UiPath.Python.Host32.exe"
+      ],
+      "Path": "C:\\Users\\piyus\\.nuget\\packages\\uipath.python.activities\\1.1.6863.33404"
     },
     {
       "Package": {
