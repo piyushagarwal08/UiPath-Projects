@@ -1,7 +1,7 @@
 # Email Automation
 * Create an Excel file with headers Name and Email
 * Save the Email_Automation folder and ```.nupkg``` file in the path ```C:\ProgramData\UiPath\Packages```
-* The attachments folder path and error file path can be configured in the text file present in this folder
+* The attachments folder path,inline image folder path and error file path can be configured in the text file present in this folder
 
 ## Note
 * Before using this bot, please open ```https://myaccount.google.com/lesssecureapps```
